@@ -7,7 +7,7 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 
-public class AppiumServer {
+public class AppiumServerCommand {
 
 	public static void startServer() {
 		

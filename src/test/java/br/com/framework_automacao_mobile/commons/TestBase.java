@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 
 import br.com.framework_automacao_mobile.driverfactory.GetMobileDriverFactory;
 import br.com.framework_automacao_mobile.enumerator.SelectMobile;
-import br.com.framework_automacao_mobile.utils.AppiumServer;
+import br.com.framework_automacao_mobile.utils.AppiumServerCommand;
+import br.com.framework_automacao_mobile.utils.AppiumServerConfig;
 
 public class TestBase{
 	
@@ -17,7 +18,7 @@ public class TestBase{
 	@BeforeClass
 	public static void getDriver() throws IOException {
 		
-		AppiumServer.startServer();
+		AppiumServerConfig.startServer();
 		GetMobileDriverFactory.getInstance().inicializeDriver(SelectMobile.ANDROID);
 		driver = GetMobileDriverFactory.getInstance().getDriver();
 		System.out.println("Inicializando AndroidDriver...");
@@ -28,7 +29,7 @@ public class TestBase{
 		
 		System.out.println("Fechando AndroidDriver....");
 		driver.close();
-		AppiumServer.stopServer();
+		AppiumServerConfig.stopServer();
 	}
 
 	

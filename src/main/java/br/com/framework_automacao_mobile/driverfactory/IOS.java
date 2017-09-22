@@ -32,7 +32,7 @@ public class IOS {
 		try {
 			driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capability);
 			driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-			System.out.println("Appium server and IOS driver started...");
+			System.out.println("IOS driver started...");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
