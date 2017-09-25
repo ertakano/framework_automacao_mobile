@@ -18,7 +18,7 @@ public class TestBase{
 	@BeforeClass
 	public static void getDriver() throws IOException {
 		
-		AppiumServerConfig.startServer();
+		AppiumServerCommand.startServer();
 		GetMobileDriverFactory.getInstance().inicializeDriver(SelectMobile.ANDROID);
 		driver = GetMobileDriverFactory.getInstance().getDriver();
 		System.out.println("Inicializando AndroidDriver...");
@@ -29,7 +29,7 @@ public class TestBase{
 		
 		System.out.println("Fechando AndroidDriver....");
 		driver.close();
-		AppiumServerConfig.stopServer();
+		AppiumServerCommand.stopServer();
 	}
 
 	

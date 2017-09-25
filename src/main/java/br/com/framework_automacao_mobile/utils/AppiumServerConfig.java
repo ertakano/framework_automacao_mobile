@@ -20,7 +20,7 @@ public class AppiumServerConfig {
 		serverArguments.setArgument("--local-timezone", true);
 		
 		File fileNode = new File("/usr/local/bin/node");
-		File fileJS = new File("/usr/local/lib/node_modules/appium/build/lib/appium.js"); 
+		File fileJS = new File("/usr/local/lib/node_modules/appium/build/lib/main.js"); 
 		
 		appiumServer = new AppiumServer(fileNode,fileJS,serverArguments);
 		appiumServer.startServer();

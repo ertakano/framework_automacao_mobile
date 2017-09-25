@@ -46,8 +46,8 @@ public class Android {
 		//capabilities.setCapability(MobileCapabilityType.UDID, "ORRSOVHU99999999");
 		
 		//--Capacidade para executar com Emulador
-		capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		capabilities.setCapability("avd","Nexus_5X_API_26");
+		capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		
 		//--Capacidade para executar aplicativo Calculadora Nativa
 		//capabilities.setCapability(MobileCapabilityType.VERSION, "8.0.0");
