@@ -36,8 +36,8 @@ public class Teste {
 
 	public static void startServer() {
 
-		CommandLine command = new CommandLine("/Applications/Appium.app/Contents/Resources/node/bin/node");
-		command.addArgument("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js", false);
+		CommandLine command = new CommandLine("/usr/local/bin/node");
+		command.addArgument("/usr/local/lib/node_modules/appium/build/lib/appium.js", false);
 		command.addArgument("--address", false);
 		command.addArgument("127.0.0.1");
 		command.addArgument("--port", false);

@@ -35,6 +35,10 @@ public class Android {
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
 		
+		//--nao fazer o reset do browser
+		capabilities.setCapability("noReset", "true");
+		capabilities.setCapability("fullReset", "false");
+		
 		//--seta a aplicacao a ser testada
 		//capabilities.setCapability(MobileCapabilityType.APP, arquivoAplicacao.getAbsolutePath());
 		
@@ -42,8 +46,8 @@ public class Android {
 		//capabilities.setCapability(MobileCapabilityType.UDID, "ORRSOVHU99999999");
 		
 		//--Capacidade para executar com Emulador
-		capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		capabilities.setCapability("avd","Nexus_5X_API_26");
+		capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		
 		//--Capacidade para executar aplicativo Calculadora Nativa
 		//capabilities.setCapability(MobileCapabilityType.VERSION, "8.0.0");
@@ -56,7 +60,7 @@ public class Android {
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL(URL_Server), capabilities);
 			driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-			System.out.println("Appium server and ANDROID driver started...");
+			System.out.println("ANDROID driver started...");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

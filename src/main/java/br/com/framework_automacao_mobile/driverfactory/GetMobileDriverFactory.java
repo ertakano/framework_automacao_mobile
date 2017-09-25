@@ -11,6 +11,7 @@ public class GetMobileDriverFactory {
 	private static WebDriver driver = null;
 
 	public WebDriver inicializeDriver(SelectMobile mobile) {
+		
 		driver = new MobileDriverFactory().createDriver(mobile);
 		return driver;
 	}
