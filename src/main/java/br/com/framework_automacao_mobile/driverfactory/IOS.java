@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
@@ -16,7 +15,7 @@ public class IOS {
 	
 	public IOSDriver<MobileElement> driver; 
 
-	public WebDriver getDriver() {
+	public IOSDriver<MobileElement> getDriver() {
 		
 		DesiredCapabilities capability = new DesiredCapabilities();
 		// File file = new File("/MacintoshHD/Applications/Xcode.app");

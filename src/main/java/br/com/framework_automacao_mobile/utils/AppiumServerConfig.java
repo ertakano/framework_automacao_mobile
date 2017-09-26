@@ -1,11 +1,9 @@
 package br.com.framework_automacao_mobile.utils;
 
 import java.io.File;
-import java.io.IOException;
 
+import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.github.genium_framework.server.ServerArguments;
-import com.github.genium_framework.appium.support.server.arguments.*;
-import com.github.genium_framework.appium.support.server.*;
 
 public class AppiumServerConfig {
 	
@@ -19,7 +17,7 @@ public class AppiumServerConfig {
 		serverArguments.setArgument("--no-reset", true);
 		serverArguments.setArgument("--local-timezone", true);
 		
-		File fileNode = new File("/usr/local/bin/node");
+		File fileNode = new File("/usr/local/Cellar/node@6/6.11.3/bin/node");
 		File fileJS = new File("/usr/local/lib/node_modules/appium/build/lib/main.js"); 
 		
 		appiumServer = new AppiumServer(fileNode,fileJS,serverArguments);

@@ -1,18 +1,16 @@
 package br.com.framework_automacao_mobile.driverfactory;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 public class Android {
 	
@@ -21,10 +19,12 @@ public class Android {
 	 * Documentation ADBShell: http://adbshell.com/
 	 */
 	
-	public WebDriver driver; 
-	public String URL_Server = "http://127.0.0.1:4723/wd/hub";
+	public AndroidDriver<MobileElement> driver = null; 
+    public static AppiumDriverLocalService service = null;
 
-	public WebDriver getDriver() {
+	public AndroidDriver<MobileElement> getDriver() {
+		
+	    //service = AppiumDriverLocalService.buildDefaultService();
 		
 		//--caminho da aplicacao que sera testada
 		//File arquivoAplicacao = new File("/Users/inmetrics/app/triangulo", "TrianguloApp.apk");
@@ -57,13 +57,15 @@ public class Android {
 		//capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, "com.android.calculator2.Calculator");
 		//capabilities.setCapability(MobileCapabilityType.APP, "Calculator.apk");
 		
+		//service.start();
+		//driver = new AndroidDriver<MobileElement>(service, capabilities);
 		try {
-			driver = new AndroidDriver<MobileElement>(new URL(URL_Server), capabilities);
-			driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-			System.out.println("ANDROID driver started...");
+			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		System.out.println("ANDROID driver started...");
 		
 		return driver;
 	}

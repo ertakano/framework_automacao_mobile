@@ -7,9 +7,9 @@ import java.util.Date;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import br.com.framework_automacao_mobile.utils.WebDriverUtils;
+import br.com.framework_automacao_mobile.utils.MobileDriverUtils;
 
-public class PrecosEPrazosPageObject extends WebDriverUtils{
+public class PrecosEPrazosPageObject extends MobileDriverUtils{
 
 	private String url = "http://www2.correios.com.br/sistemas/precosPrazos/";
 	

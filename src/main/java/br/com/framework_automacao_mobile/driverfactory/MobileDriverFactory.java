@@ -1,38 +1,34 @@
 package br.com.framework_automacao_mobile.driverfactory;
 
-import org.openqa.selenium.WebDriver;
-
 import br.com.framework_automacao_mobile.enumerator.SelectMobile;
+import io.appium.java_client.MobileDriver;
 
 public class MobileDriverFactory {
 
-	private WebDriver driver = null;
+	private MobileDriver driver = null;
 
-	public WebDriver createDriver(SelectMobile mobile) {
+	public MobileDriver createDriver(SelectMobile mobile) {
 
 		switch (mobile) {
 
 		case ANDROID:
 			if (driver == null) {
-				driver = new Android().getDriver();
+				return new Android().getDriver();
 			}
-			break;
 
 		case IOS:
 			if (driver == null) {
-				driver = new IOS().getDriver();
+				return new IOS().getDriver();
 			}
-			break;
 
 		default:
 			System.out.printf("Digite as opções de browser: ANDROID ou IOS.");
 		}
-
+		
 		return driver;
-
 	}
 
-	public WebDriver getDriver() {
+	public MobileDriver getDriver() {
 		return driver;
 	}
 

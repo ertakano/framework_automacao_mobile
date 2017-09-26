@@ -3,17 +3,17 @@ package br.com.framework_automacao_mobile.utils;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.framework_automacao_mobile.driverfactory.GetMobileDriverFactory;
+import io.appium.java_client.MobileDriver;
 
-public class WebDriverUtils{
+public class MobileDriverUtils{
 
-	private static WebDriver driver = GetMobileDriverFactory.getInstance().getDriver();
+	private static MobileDriver driver = GetMobileDriverFactory.getInstance().getDriver();
 	
 	private static long timeout = 20;
 	private static WebDriverWait wait = new WebDriverWait(driver, timeout);
@@ -54,7 +54,7 @@ public class WebDriverUtils{
 	protected boolean containsElement(WebElement element) throws Exception {
 		try {
 			
-			WebDriverUtils.awaitsElementToGoAppear(element);
+			MobileDriverUtils.awaitsElementToGoAppear(element);
 			if (!element.equals(null)) {
 				return true;
 			}
@@ -77,7 +77,7 @@ public class WebDriverUtils{
 		
 	protected boolean containsTextInElement(WebElement element, String text) throws Exception {
 		try {
-			WebDriverUtils.awaitsElementToGoAppear(element);
+			MobileDriverUtils.awaitsElementToGoAppear(element);
 			if (element.getText().equals(text)) {
 				return true;
 			}
@@ -88,17 +88,17 @@ public class WebDriverUtils{
 	}
 
 	protected boolean isEnabled(WebElement element) {
-		WebDriverUtils.awaitsElementToGoAppear(element);
+		MobileDriverUtils.awaitsElementToGoAppear(element);
 		return element.isEnabled();
 	}
 	
 	protected void click(WebElement element) {
-		WebDriverUtils.awaitsElementToGoAppear(element);
+		MobileDriverUtils.awaitsElementToGoAppear(element);
 		element.click();
 	}
 
 	protected void clear(WebElement element) {
-		WebDriverUtils.awaitsElementToGoAppear(element);
+		MobileDriverUtils.awaitsElementToGoAppear(element);
 		element.clear();
 	}
 	
@@ -108,7 +108,7 @@ public class WebDriverUtils{
 	}
 	
 	protected void selectElementListBox(WebElement element, String itemValue) {
-		WebDriverUtils.awaitsElementToGoAppear(element);
+		MobileDriverUtils.awaitsElementToGoAppear(element);
 		new Select(element).selectByVisibleText(itemValue);
 	}
 

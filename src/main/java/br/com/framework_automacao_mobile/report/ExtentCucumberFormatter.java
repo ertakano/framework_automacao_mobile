@@ -15,7 +15,6 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -40,13 +39,14 @@ import gherkin.formatter.model.Scenario;
 import gherkin.formatter.model.ScenarioOutline;
 import gherkin.formatter.model.Step;
 import gherkin.formatter.model.Tag;
+import io.appium.java_client.MobileDriver;
 
 /**
  * A cucumber based reporting listener which generates the Extent Report
  */
 public class ExtentCucumberFormatter implements Reporter, Formatter {
 	
-	private static WebDriver driver = GetMobileDriverFactory.getInstance().getDriver();
+	private static MobileDriver driver = GetMobileDriverFactory.getInstance().getDriver();
 	private static ExtentReports extentReports;
     static ExtentHtmlReporter htmlReporter;
     private boolean scenarioOutlineFlag;
