@@ -1,16 +1,15 @@
 package br.com.framework_automacao_mobile.driverfactory;
 
-import org.openqa.selenium.WebDriver;
-
 import br.com.framework_automacao_mobile.enumerator.SelectMobile;
+import io.appium.java_client.MobileDriver;
 
 
 public class GetMobileDriverFactory {
 
 	private static GetMobileDriverFactory instance = new GetMobileDriverFactory();
-	private static WebDriver driver = null;
-
-	public WebDriver inicializeDriver(SelectMobile mobile) {
+	private static MobileDriver driver = null;
+	
+	public MobileDriver inicializeDriver(SelectMobile mobile) {
 		
 		driver = new MobileDriverFactory().createDriver(mobile);
 		return driver;
@@ -23,7 +22,7 @@ public class GetMobileDriverFactory {
 		return instance;
 	}
 
-	public WebDriver getDriver() {
+	public MobileDriver getDriver() {
 		return driver;
 	}
 }

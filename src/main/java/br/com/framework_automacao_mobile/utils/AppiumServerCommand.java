@@ -5,33 +5,26 @@ import java.io.IOException;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.ExecuteException;
 
 public class AppiumServerCommand {
 
-	public static void startServer() {
+	public static void startServer() throws ExecuteException, IOException, InterruptedException {
 		
-		CommandLine command = new CommandLine("/usr/local/bin/node");
+		CommandLine command = new CommandLine("/usr/local/Cellar/node@6/6.11.3/bin/node");
 		command.addArgument("/usr/local/lib/node_modules/appium/build/lib/main.js", false);
 		command.addArgument("--address", false);
 		command.addArgument("127.0.0.1");
 		command.addArgument("--port", false);
 		command.addArgument("4723");
-		command.addArgument("--full-reset", false);
-		command.addArgument("wd");
-		command.addArgument("hub");
+		
 		DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 		DefaultExecutor executor = new DefaultExecutor();
 		executor.setExitValue(1);
 		
-		try {
-			executor.execute(command, resultHandler);
-			Thread.sleep(5000);
-			System.out.println(resultHandler.getException().getMessage());
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		executor.execute(command, resultHandler);
+		Thread.sleep(5000);
+
 	}
 
 	public static void stopServer() {

@@ -4,25 +4,25 @@ import java.io.IOException;
 import java.util.List;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import br.com.framework_automacao_default.pagefactory.HomePageObject;
 import br.com.framework_automacao_default.pagefactory.PrecosEPrazosPageObject;
 import br.com.framework_automacao_mobile.driverfactory.GetMobileDriverFactory;
 import br.com.framework_automacao_mobile.report.ExtentCucumberFormatter;
-import br.com.framework_automacao_mobile.utils.WebDriverUtils;
+import br.com.framework_automacao_mobile.utils.MobileDriverUtils;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import io.appium.java_client.MobileDriver;
 
 public class PrecosPrazosStepDefinitions{
 
-	private static WebDriver driver = GetMobileDriverFactory.getInstance().getDriver();
+	private static MobileDriver driver = GetMobileDriverFactory.getInstance().getDriver();
 	
-	WebDriverUtils utils = new WebDriverUtils();
+	MobileDriverUtils utils = new MobileDriverUtils();
 	HomePageObject home;
 	PrecosEPrazosPageObject precosPrazos;
 	

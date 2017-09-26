@@ -1,15 +1,15 @@
 package br.com.framework_automacao_default.pagefactory;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.com.framework_automacao_mobile.driverfactory.GetMobileDriverFactory;
-import br.com.framework_automacao_mobile.utils.WebDriverUtils;
+import br.com.framework_automacao_mobile.utils.MobileDriverUtils;
+import io.appium.java_client.MobileDriver;
 
-public class HomePageObject extends WebDriverUtils{
+public class HomePageObject extends MobileDriverUtils{
 
-	private WebDriver driver = GetMobileDriverFactory.getInstance().getDriver();
+	private MobileDriver driver = GetMobileDriverFactory.getInstance().getDriver();
 	
 	private String url = "http://www.correios.com.br/para-voce";
 
